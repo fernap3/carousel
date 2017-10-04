@@ -34,32 +34,67 @@ class Carousel
 		this.itemContainer.appendChild(this.rightSwitchButton);
 
 		document.addEventListener("mousemove", (evt: MouseEvent) => this.OnMouseMove(evt));
-	}
 
-	public AddItem(item: HTMLElement): void
-	{
-		let itemButton = document.createElement("div");
-		itemButton.className = "carouselPreviewItem";
-		itemButton.style.display = "none";
-		
-		let itemIndex = this.items.length;
-		itemButton.onclick = (evt: MouseEvent) => { this.ShowItem(itemIndex); };
-		this.previewBar.appendChild(itemButton);
+		// Add some items to the carousel
+		for (let i = 0; i < 5; i++)
+		{
+			let item = document.createElement("div");
+			item.className = "demoItem";
+			item.innerHTML = i + 1 + "";
 
-		this.previewItems.push(itemButton);
+			// Make some GREAT looking function buttons
+			let buttonsContainer = document.createElement("div");
+			buttonsContainer.className = "functionButtonsContainer";
+			for (let row = 0; row < 2; row++)
+			{
+				for (let col = 0; col < 3; col++)
+				{
+					var buttonNum = row * 3 + col;
+					
+					let button = document.createElement("button");
+					button.type = "button";
+					button.className = "functionButton";
+					button.textContent = buttonNum + "";
+					if ((row * 3 + col) % 2)
+					{
+						button.classList.add("functionButtonOdd");
+					}
 
-		let itemBox = document.createElement("div");
-		itemBox.className = "carouselItem";
-		itemBox.appendChild(item);
-		this.items.push(itemBox);
+					let createHandler = (actualNum: number) => {
+						return (evt: MouseEvent) => { alert(actualNum);};
+					};
 
-		itemBox.addEventListener("transitionend", (evt: Event) => {
-			if (!itemBox.hasAttribute("data-slidingout"))
-				return;
+					button.onclick = createHandler(buttonNum);
 
-			itemBox.remove();
-			itemBox.style.position = "";
-		});
+					buttonsContainer.appendChild(button);
+				}
+			}
+
+			item.appendChild(buttonsContainer);
+			
+			let itemPreviewButton = document.createElement("div");
+			itemPreviewButton.className = "carouselPreviewItem";
+			itemPreviewButton.style.display = "none";
+			
+			let itemIndex = this.items.length;
+			itemPreviewButton.onclick = (evt: MouseEvent) => { this.ShowItem(itemIndex); };
+			this.previewBar.appendChild(itemPreviewButton);
+	
+			this.previewItems.push(itemPreviewButton);
+	
+			let itemBox = document.createElement("div");
+			itemBox.className = "carouselItem";
+			itemBox.appendChild(item);
+			this.items.push(itemBox);
+	
+			itemBox.addEventListener("transitionend", (evt: Event) => {
+				if (!itemBox.hasAttribute("data-slidingout"))
+					return;
+	
+				itemBox.remove();
+				itemBox.style.position = "";
+			});
+		}
 	}
 
 	public Show(): void
