@@ -60,11 +60,9 @@ class Carousel
 						button.classList.add("functionButtonOdd");
 					}
 
-					let createHandler = (actualNum: number) => {
-						return (evt: MouseEvent) => { alert(actualNum);};
+					button.onclick = (evt: MouseEvent) => {
+						alert(buttonNum);
 					};
-
-					button.onclick = createHandler(buttonNum);
 
 					buttonsContainer.appendChild(button);
 				}
