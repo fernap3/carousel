@@ -43,32 +43,32 @@ class Carousel
 			item.innerHTML = i + 1 + "";
 
 			// Make some GREAT looking function buttons
-			let buttonsContainer = document.createElement("div");
-			buttonsContainer.className = "functionButtonsContainer";
-			for (let row = 0; row < 2; row++)
-			{
-				for (let col = 0; col < 3; col++)
-				{
-					var buttonNum = row * 3 + col;
+			// let buttonsContainer = document.createElement("div");
+			// buttonsContainer.className = "functionButtonsContainer";
+			// for (let row = 0; row < 2; row++)
+			// {
+			// 	for (let col = 0; col < 3; col++)
+			// 	{
+			// 		var buttonNum = row * 3 + col;
 					
-					let button = document.createElement("button");
-					button.type = "button";
-					button.className = "functionButton";
-					button.textContent = buttonNum + "";
-					if ((row * 3 + col) % 2)
-					{
-						button.classList.add("functionButtonOdd");
-					}
+			// 		let button = document.createElement("button");
+			// 		button.type = "button";
+			// 		button.className = "functionButton";
+			// 		button.textContent = buttonNum + "";
+			// 		if ((row * 3 + col) % 2)
+			// 		{
+			// 			button.classList.add("functionButtonOdd");
+			// 		}
 
-					button.onclick = (evt: MouseEvent) => {
-						alert(buttonNum);
-					};
+			// 		button.onclick = (evt: MouseEvent) => {
+			// 			alert(buttonNum);
+			// 		};
 
-					buttonsContainer.appendChild(button);
-				}
-			}
+			// 		buttonsContainer.appendChild(button);
+			// 	}
+			// }
 
-			item.appendChild(buttonsContainer);
+			// item.appendChild(buttonsContainer);
 			
 			let itemPreviewButton = document.createElement("div");
 			itemPreviewButton.className = "carouselPreviewItem";
