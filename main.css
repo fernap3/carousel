@@ -1,0 +1,146 @@
+body
+{
+	font-family: Roboto,sans-serif;
+	display: flex;
+	align-items: center;
+    justify-content: center;
+}
+
+.presentationArea {
+	height: 480px;
+    width: 848px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
+	overflow: hidden;
+	position: relative;
+	box-shadow: 0 0 11px -2px rgba(0,0,0,0.6);
+}
+
+.carouselItemContainer
+{
+	display: flex;
+    align-items: center;
+	justify-content: center;width: 100%;
+	height: calc(100% - 80px);
+	overflow: hidden;
+	position: relative;
+	background: white;
+}
+
+.carouselItem {
+	transition: all .5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.carouselPreviewBar
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: space-around;
+	height: 80px;
+	width: 800px;
+	padding: 0 5px;
+	box-sizing: border-box;
+	background: white;
+	width: 100%;
+	box-shadow: 0 0px 34px 0 rgba(0,0,0,.1);
+}
+
+.carouselPreviewItem
+{
+	height: 60px;
+    width: 107px;
+    margin: 0 24px;
+    transform-origin: center 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #c5c5c5;
+    border-radius: 3%;
+    background: white;
+    box-shadow: 0 2px 4px 0px rgba(0,0,0,.1);
+	cursor: pointer;
+	transition: border-color .5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.carouselPreviewItem[data-selected] {
+	border-color: black;
+}
+
+.carouselPreviewItem::before {
+	font-size: 22px;
+    color: white;
+    background: #848484;
+    height: 2em;
+    width: 2em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.carouselPreviewItem:nth-child(1)::before {
+	content: "1"
+}
+
+.carouselPreviewItem:nth-child(2)::before {
+	content: "2"
+}
+
+.carouselPreviewItem:nth-child(3)::before {
+	content: "3"
+}
+
+.carouselPreviewItem:nth-child(4)::before {
+	content: "4"
+}
+
+.carouselPreviewItem:nth-child(5)::before {
+	content: "5"
+}
+
+.switchButton {
+	background: black;
+	opacity: .05;
+	height: 200px;
+	width: 80px;
+	position: absolute;
+	top: 50%;
+	margin-top: -100px;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: all .2s cubic-bezier(0.22, 0.61, 0.36, 1);
+	z-index: 1;
+	border: 0;
+	outline: none;
+}
+
+.switchButton:hover {
+	opacity: .4;
+}
+
+.switchButton:active {
+	opacity: .6;
+}
+
+.leftSwitchButton {
+	left: 10px;
+}
+
+.rightSwitchButton {
+	right: 10px;
+}
+
+.demoItem {
+	background: #6896ed;
+	width: 424px;
+	height: 240px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	font-size: 61pt;
+	border-radius: 5px;
+}
